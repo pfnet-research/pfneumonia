@@ -1,0 +1,44 @@
+n_gpu: 8
+epoch: 30
+batch_size: 10
+use_mnbn: 0
+val_set: 0  # Must be [0, 9].
+
+lr: 0.001
+lr_schedule: step
+lr_schedule_args:
+  warmup_iteration: 500
+  warmup_factor: 0.1
+  step_sizes: [20, 27]
+
+optimizer: Adam
+weight_decay: 0.0001
+momentum: 0.99
+extractor_freeze_iteration: 200  # 0: no freeze, -1: eternal freeze
+
+# Network architecture
+extractor: resnet152
+downscale: 2  # Images' height and width will be divided by `downscale`.
+concat_seg: 1  # 0: no concat, 1: concat sigmoid, 2: concat raw and sigmoid
+use_hist_eq: 0
+# Note: if `use_psp` is set, `crop` augmentation is prohibited.
+use_psp: 0
+use_senet: 0
+use_coord_conv: 0
+
+oversampling_rate: 3
+view_position: both
+
+# Data augmentation
+data_augmentation:
+  x_flip: 1
+  rotate90: 1
+  scale: 0
+  crop: 0
+  window_width: 1.1
+  contrast: 10
+  zoom: 1.2
+
+# Configs for prediction
+edge_conf_operation: logmean
+size_thresh: 40

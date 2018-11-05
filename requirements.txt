@@ -1,0 +1,11 @@
+chainer==5.0.0rc1
+chainercv==0.10.0
+cupy==5.0.0rc1
+mpi4py==3.0.0
+Cython==0.25.1
+numpy==1.14.5
+pandas==0.22.0
+pydicom==1.1.0
+pyyaml==3.12
+gitpython==2.1.11
+opencv-python==3.4.0.12
